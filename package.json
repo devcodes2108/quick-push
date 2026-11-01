@@ -1,0 +1,33 @@
+{
+  "name": "quick-push",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "tsc --noEmit && vite build && npm run verify:extension",
+    "typecheck": "tsc --noEmit",
+    "typecheck:worker": "tsc --noEmit -p worker/tsconfig.json",
+    "test": "vitest run",
+    "test:extension": "vitest run src",
+    "test:worker": "vitest run worker",
+    "lint": "eslint . --max-warnings=0",
+    "verify:extension": "node scripts/verify-extension-build.mjs"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@types/chrome": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@eslint/js": "latest",
+    "eslint": "latest",
+    "typescript": "latest",
+    "typescript-eslint": "latest",
+    "vitest": "latest"
+  }
+}

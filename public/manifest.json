@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Quick Push",
+  "description": "Push code from HackerRank challenges to your selected GitHub repository.",
+  "version": "0.1.0",
+  "permissions": ["activeTab", "identity", "scripting", "storage"],
+  "host_permissions": [
+    "https://*.hackerrank.com/*",
+    "https://api.github.com/*",
+    "https://github.com/*",
+    "https://*.workers.dev/*",
+    "https://REPLACE_WITH_WORKER_HOST/*"
+  ],
+  "action": {
+    "default_title": "Toggle Quick Push"
+  },
+  "background": {
+    "service_worker": "assets/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.hackerrank.com/*"],
+      "js": ["assets/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
